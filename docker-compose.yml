@@ -9,6 +9,6 @@ services:
       - '-c'
       - 'npm install && npm start'
     ports:
-      - '3001:3000'
+      - '3000:3000'
     volumes:
       - '.:/home/reactjs/app'
