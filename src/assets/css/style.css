@@ -1,1 +1,11 @@
 @import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root{
+    --font-1: 'Roboto', sans-serif;
+    --color-1: #00ABB3;
+    --color-2: #3C4048;
+    --color-3: #B2B2B2;
+    --color-4: #EAEAEA;
+}

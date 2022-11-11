@@ -8,10 +8,26 @@ function Nav() {
 
     return (
         <nav>
-            <Link to="/">Login</Link>
-            <Link to="register/">Register</Link>
-            <Link to="posts/">Posts</Link>
-            { token.token ? <Link to="logout/">Logout</Link> : ''}            
+            <div>
+                <i className="material-symbols-outlined">person</i>
+                <Link to="/">Login</Link>
+            </div>
+            
+            <div>
+                <i className="material-symbols-outlined">person_add</i>
+                <Link to="register/">Register</Link>
+            </div>
+            
+            <div>
+                <i className="material-symbols-outlined">article</i>
+                <Link to="posts/">Posts</Link>
+            </div>
+            
+            { token.token && 
+                <div>
+                    <i className="material-symbols-outlined">logout</i>
+                    <Link to="logout/">Logout</Link>
+                </div>}            
         </nav>
     );
 }

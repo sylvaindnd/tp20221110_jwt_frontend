@@ -19,7 +19,24 @@ export default function AuthProvider(props){
         setToken(null);
     }
 
-    const value = { token, updateToken, deleteToken }
+    function isAdmin(){
+        if(!token){
+            return false;
+        }
+
+        const parseJwt = ()=> {
+            var base64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        
+            return JSON.parse(jsonPayload);
+        }
+
+        return parseJwt().role === 1 ? false : true;
+    }
+
+    const value = { token, updateToken, deleteToken, isAdmin }
 
     return <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
 }
