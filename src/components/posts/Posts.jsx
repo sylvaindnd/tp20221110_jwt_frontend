@@ -77,15 +77,15 @@ function Posts() {
 
     return (
         <Auth>
+            <section id="addpost">
             {token.isAdmin() && (
-                <section id="addpost">
                     <form>
                         <input type="text" name="title" id="title" placeholder="title" />
                         <textarea name="content" id="content" placeholder="content"></textarea>
                         <button type="submit" onClick={(e) => { actionAddPost(e) }}>Create post</button>
                     </form>
-                </section>
             )}
+            </section>
             <section id="posts">
                 <ul className='posts_items'>
                     {posts && posts.map((post) => (
