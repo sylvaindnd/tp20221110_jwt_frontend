@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './assets/css/style.css';
 import App from './App';
+import AuthProvider from './components/required/AuthProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+root.render(  
   <BrowserRouter>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </BrowserRouter>
 );

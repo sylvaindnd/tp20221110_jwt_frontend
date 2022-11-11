@@ -1,8 +1,10 @@
 import './login.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useToken } from '../required/AuthProvider';
 
 function Login() {
+    const token = useToken();
     const navigate = useNavigate();
 
     async function actionLogin(e){
@@ -11,7 +13,7 @@ function Login() {
         const password = document.querySelector('#login #password').value;
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
-        headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
+        headers.append("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
         const requestOptions = {
             method: 'POST',
             headers: headers,
@@ -28,7 +30,7 @@ function Login() {
             alert(response.message);
             return;
         }
-        localStorage.setItem('token', response.token);
+        token.updateToken(response.token);
         navigate('posts/');
         return;
     }
