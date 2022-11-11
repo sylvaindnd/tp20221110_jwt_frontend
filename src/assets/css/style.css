@@ -4,8 +4,87 @@
 
 :root{
     --font-1: 'Roboto', sans-serif;
-    --color-1: #00ABB3;
-    --color-2: #3C4048;
-    --color-3: #B2B2B2;
-    --color-4: #EAEAEA;
+    --color-1: #CC9544;
+    --color-2: #1C0A00;
+    --color-3: #361500;
+    --color-4: #603601;
+    --color-5: #ecebea;
+}
+
+body{
+    background-color: var(--color-2);
+}
+
+form{
+    background-color: var(--color-1);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius:8px;
+    width: 90%;
+    max-width: 320px;
+}
+
+form label{
+    color: var(--color-4);
+    font-family: var(--font-1);
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+form select{
+    margin-top: 6px;
+    color: var(--color-4);
+    background-color: var(--color-5);
+    border: 2px solid var(--color-4);
+    border-radius: 4px;
+    padding: 6px;
+    font-family: var(--font-1);
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+form input, form textarea, form button{
+    color: var(--color-4);
+    background-color: transparent;
+    border: 2px solid var(--color-4);
+    border-radius: 4px;
+    padding: 12px;
+    font-family: var(--font-1);
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+form input::placeholder, form textarea::placeholder{
+    color: #60350196;
+}
+form button{
+    background-color: var(--color-4);
+    color: var(--color-5);
+    font-size: 16px;
+    cursor: pointer;
+}
+form button:hover{
+    background-color: var(--color-3);
+    border-color: var(--color-3);
+}
+form > *:not(:last-child){
+    margin-bottom: 9px;
+}
+
+.requiredAuth{
+    margin-top: 60px;
+    color: red;
+    font-size: 14px;
+    font-family: var(--font-1);
+    padding: 20px;
+}
+.requiredAuth a{
+    color: red;
+    padding-left: 4px;
 }

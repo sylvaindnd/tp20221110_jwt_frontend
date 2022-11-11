@@ -1,33 +1,41 @@
 import './nav.css';
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useToken } from '../required/AuthProvider';
- 
+
 function Nav() {
     const token = useToken();
+    const location = useLocation();
+    const [path, setPath] = useState('');
+
+    useEffect(()=>{
+        const p = location.pathname.split('/').join('');
+        setPath(p);
+    },[location])
 
     return (
         <nav>
-            <div>
+            <Link to="/" className={path === '' ? 'active' : ''}>
                 <i className="material-symbols-outlined">person</i>
-                <Link to="/">Login</Link>
-            </div>
-            
-            <div>
+                Login
+            </Link>
+
+            <Link to="register/" className={path === 'register' ? 'active' : ''}>
                 <i className="material-symbols-outlined">person_add</i>
-                <Link to="register/">Register</Link>
-            </div>
-            
-            <div>
+                Register
+            </Link>
+
+            <Link to="posts/" className={path === 'posts' ? 'active' : ''}>
                 <i className="material-symbols-outlined">article</i>
-                <Link to="posts/">Posts</Link>
-            </div>
-            
-            { token.token && 
-                <div>
+                Posts
+            </Link>
+
+            {token.token &&
+                <Link to="logout/">
                     <i className="material-symbols-outlined">logout</i>
-                    <Link to="logout/">Logout</Link>
-                </div>}            
+                    Logout
+                </Link>
+            }
         </nav>
     );
 }
