@@ -29,7 +29,7 @@ function Login() {
             return;
         }
         localStorage.setItem('token', response.token);
-        navigate('post/');
+        navigate('posts/');
         return;
     }
 
